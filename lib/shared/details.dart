@@ -25,52 +25,52 @@ class DetailsScreen extends StatelessWidget {
                       item.imgURL,
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10.0,
                   ),
                   Padding(
-                    padding: EdgeInsets.symmetric(
+                    padding: const EdgeInsets.symmetric(
                       horizontal: 8.0,
                     ),
                     child: Column(
                       children: [
                         Text(
                           item.newsTitle,
-                          style: TextStyle(
+                          style: const TextStyle(
                             fontSize: 22.0,
                             fontWeight: FontWeight.w500,
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 10.0,
                         ),
                         Row(
                           children: [
-                            Icon(Icons.person),
+                            const Icon(Icons.person),
                             Text(
                               item.author,
-                              style: TextStyle(
+                              style: const TextStyle(
                                 fontSize: 12.0,
                               ),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               width: 10.0,
                             ),
                             Icon(Icons.date_range),
                             Text(
                               item.date,
-                              style: TextStyle(
+                              style: const TextStyle(
                                 fontSize: 12.0,
                               ),
                             ),
                           ],
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 20.0,
                         ),
                         Text(
                           lipsum.createParagraph(numParagraphs: 3),
-                          style: TextStyle(
+                          style: const TextStyle(
                             fontSize: 18.0,
                           ),
                         ),
