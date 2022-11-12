@@ -9,15 +9,18 @@ Widget listWidget(ListItem item) {
       padding: EdgeInsets.all(8.0),
       child: Row(
         children: [
-          Container(
-            width: 80.0,
-            height: 80.0,
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image: NetworkImage(item.imgURL),
-                fit: BoxFit.cover,
+          Hero(
+            tag: '${item.newsTitle}',
+            child: Container(
+              width: 80.0,
+              height: 80.0,
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: NetworkImage(item.imgURL),
+                  fit: BoxFit.cover,
+                ),
+                borderRadius: BorderRadius.circular(8.0),
               ),
-              borderRadius: BorderRadius.circular(8.0),
             ),
           ),
           const SizedBox(
@@ -34,7 +37,7 @@ Widget listWidget(ListItem item) {
                     fontSize: 18.0,
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 5.0,
                 ),
                 Row(
@@ -42,17 +45,17 @@ Widget listWidget(ListItem item) {
                     Icon(Icons.person),
                     Text(
                       item.author,
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 12.0,
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 10.0,
                     ),
                     Icon(Icons.date_range),
                     Text(
                       item.date,
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 12.0,
                       ),
                     ),
