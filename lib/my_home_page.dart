@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:news_app/shared/listitem.dart';
+import 'package:lipsum/lipsum.dart' as lipsum;
+import 'package:news_app/shared/listwidget.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
@@ -12,6 +15,46 @@ class MyHomePage extends StatefulWidget {
 // first let's extend our app to SingleTickerProviderStateMixin
 class _MyHomePageState extends State<MyHomePage>
     with SingleTickerProviderStateMixin {
+  // Let's make a list of list items
+
+  List<ListItem> listTiles = [
+    ListItem(
+      imgURL:
+          "https://images.unsplash.com/photo-1503694978374-8a2fa686963a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=869&q=80",
+      newsTitle: lipsum.createWord(numWords: 6),
+      author: lipsum.createWord(numWords: 2),
+      date: "28 Jan 2020",
+    ),
+    ListItem(
+      imgURL:
+          "https://images.unsplash.com/photo-1503694978374-8a2fa686963a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=869&q=80",
+      newsTitle: lipsum.createWord(numWords: 6),
+      author: lipsum.createWord(numWords: 2),
+      date: "03 Mar 2020",
+    ),
+    ListItem(
+      imgURL:
+          "https://images.unsplash.com/photo-1503694978374-8a2fa686963a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=869&q=80",
+      newsTitle: lipsum.createWord(numWords: 6),
+      author: lipsum.createWord(numWords: 2),
+      date: "28 July 2020",
+    ),
+    ListItem(
+      imgURL:
+          "https://images.unsplash.com/photo-1503694978374-8a2fa686963a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=869&q=80",
+      newsTitle: lipsum.createWord(numWords: 6),
+      author: lipsum.createWord(numWords: 2),
+      date: "28 Jan 2020",
+    ),
+    ListItem(
+      imgURL:
+          "https://images.unsplash.com/photo-1503694978374-8a2fa686963a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=869&q=80",
+      newsTitle: lipsum.createWord(numWords: 6),
+      author: lipsum.createWord(numWords: 2),
+      date: "28 Jan 2020",
+    ),
+  ];
+
   final List<Tab> _tabList = [
     const Tab(
       child: Text("Top"),
@@ -49,14 +92,6 @@ class _MyHomePageState extends State<MyHomePage>
     super.dispose();
   }
 
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -75,7 +110,7 @@ class _MyHomePageState extends State<MyHomePage>
         backgroundColor: Color(0XFFFAFAFA),
         centerTitle: true,
         bottom: PreferredSize(
-          preferredSize: Size.fromHeight(30.0),
+          preferredSize: const Size.fromHeight(30.0),
           // we need the create a tab controller and tablist
           child: TabBar(
             indicatorColor: Colors.black,
@@ -90,23 +125,34 @@ class _MyHomePageState extends State<MyHomePage>
         controller: _tabController,
         children: [
           Padding(
-            padding: EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(8.0),
+            child: Container(
+              // Now let's build the ListWidget
+              child: ListView.builder(
+                itemCount: _tabList.length,
+                itemBuilder: (context, index) {
+                  return InkWell(
+                    onTap: () {},
+                    child: listWidget(listTiles[index]),
+                  );
+                },
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
             child: Container(),
           ),
           Padding(
-            padding: EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(8.0),
             child: Container(),
           ),
           Padding(
-            padding: EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(8.0),
             child: Container(),
           ),
           Padding(
-            padding: EdgeInsets.all(8.0),
-            child: Container(),
-          ),
-          Padding(
-            padding: EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(8.0),
             child: Container(),
           ),
         ],
